@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Academics - Khidwai English School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8B4513; /* SaddleBrown */
+            --secondary-color: #DAA520; /* GoldenRod */
+            --accent-color: #A0522D; /* Sienna */
+            --light-color: #F5F5DC; /* Beige */
+            --dark-color: #333;
+            --text-color: #555;
+            --white: #fff;
+            --highlight-color: #CD853F; /* Peru */
+            --light-brown: #DEB887; /* BurlyWood */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .logo img {
+            height: 70px;
+            margin-right: 15px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            padding: 10px 0;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            padding: 1rem 5%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+        }
+        
+        .mobile-menu ul li {
+            margin-bottom: 1rem;
+        }
+        
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            display: block;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--light-color);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+        
+        /* Academics Hero Section */
+        .academics-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/s1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 3rem;
+        }
+        
+        .academics-hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .academics-hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Academics Content Styles */
+        .academics-container {
+            padding: 0 5% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .academics-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .academics-intro h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .academics-intro p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .curriculum-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .grade-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .grade-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .grade-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .grade-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.2rem;
+            text-align: center;
+        }
+        
+        .grade-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .grade-body {
+            padding: 1.5rem;
+        }
+        
+        .grade-body ul {
+            list-style: none;
+        }
+        
+        .grade-body ul li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .grade-body ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        .academic-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 4rem 5% 2rem;
+            background-image: linear-gradient(to bottom, var(--primary-color), rgba(139, 69, 19, 0.8)), url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-column p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-item i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            margin-top: 3px;
+        }
+        
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-media a {
+            color: var(--light-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .social-media a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Quick Links - Reduced spacing */
+        .footer-links-list {
+            list-style: none;
+        }
+        
+        .footer-links-list li {
+            margin-bottom: 0.1rem; /* Reduced from 0.8rem */
+        }
+        
+        .footer-links-list li a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 3px 0; /* Reduced padding */
+        }
+        
+        .footer-links-list li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .footer-proud-list {
+            list-style: none;
+        }
+        
+        .footer-proud-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-proud-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            gap: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0.8rem 3%;
+            }
+            
+            .logo img {
+                height: 50px;
+                margin-right: 10px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+            
+            .academics-hero {
+                height: 250px;
+            }
+            
+            .academics-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .academics-hero-content p {
+                font-size: 1rem;
+            }
+            
+            .mobile-menu {
+                padding: 1rem 3%;
+            }
+            
+            .grade-levels {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .academics-hero {
+                height: 200px;
+            }
+            
+            .academics-hero-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .academics-hero-content p {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-contact-item {
+                justify-content: center;
+            }
+            
+            .footer-links-list li a {
+                text-align: center;
+            }
+            
+            .social-media {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .academics-hero {
+                height: 180px;
+            }
+            
+            .academics-hero-content h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Active Page Highlight */
+        nav ul li a.active {
+            color: var(--secondary-color);
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+            background-color: var(--secondary-color);
+        }
+
+        /* For mobile menu */
+        .mobile-menu ul li a.active {
+            color: var(--secondary-color);
+            padding-left: 10px;
+            border-left: 3px solid var(--secondary-color);
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Khidwai English School Logo">
+                <div class="logo-text">
+                    <h1>Khidwai English School</h1>
+                    <p>Excellence in Education</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="alumini.html">Application</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="facilites.html">Facilities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="alumni.html">Alumni</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="facilites.html">Facilities</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Academics Hero Section -->
+    <section class="academics-hero">
+        <div class="academics-hero-content">
+            <h1 class="slide-up">Our Academic Programs</h1>
+            <p class="fade-in">Providing quality education with a curriculum designed to nurture young minds</p>
+        </div>
+    </section>
+
+    <!-- Academics Content Section -->
+    <div class="academics-container">
+        <div class="academics-intro slide-up">
+            <h2>Excellence in Education</h2>
+            <p>At Khidwai English School, we offer a comprehensive academic program that fosters intellectual growth, creativity, and character development. Our curriculum is designed to meet the needs of all learners and prepare them for success in higher education and beyond.</p>
+        </div>
+
+        <div class="curriculum-section">
+            <h2 class="section-title">Our Curriculum</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">We follow the Karnataka State Board curriculum with an emphasis on holistic development. Our program includes:</p>
+            
+            <div class="grade-levels">
+                <div class="grade-card slide-up">
+                    <div class="grade-header">
+                        <h3>Primary School</h3>
+                        <p>Grades 1 - 5</p>
+                    </div>
+                    <div class="grade-body">
+                        <ul>
+                            <li>English Language Arts</li>
+                            <li>Mathematics</li>
+                            <li>Environmental Studies</li>
+                            <li>Kannada/Hindi</li>
+                            <li>Art & Craft</li>
+                            <li>Physical Education</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="grade-card slide-up" style="animation-delay: 0.2s;">
+                    <div class="grade-header">
+                        <h3>Middle School</h3>
+                        <p>Grades 6 - 8</p>
+                    </div>
+                    <div class="grade-body">
+                        <ul>
+                            <li>English, Kannada, Hindi</li>
+                            <li>Mathematics & Science</li>
+                            <li>Social Studies</li>
+                            <li>Computer Science</li>
+                            <li>Physical Education</li>
+                            <li>Arts & Music</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="grade-card slide-up" style="animation-delay: 0.4s;">
+                    <div class="grade-header">
+                        <h3>High School</h3>
+                        <p>Grades 9 - 10</p>
+                    </div>
+                    <div class="grade-body">
+                        <ul>
+                            <li>English, Kannada, Hindi</li>
+                            <li>Mathematics & Science</li>
+                            <li>Social Science</li>
+                            <li>Computer Applications</li>
+                            <li>Physical Education</li>
+                            <li>Optional Subjects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="academic-features-section">
+            <h2 class="section-title">Academic Features</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Our school offers unique programs that enhance the learning experience:</p>
+            
+            <div class="academic-features">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Smart Classes</h3>
+                    <p>Technology-integrated classrooms with digital boards and multimedia content to make learning interactive and engaging.</p>
+                </div>
+                
+                <div class="feature-card fade-in" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Science Labs</h3>
+                    <p>Well-equipped laboratories for Physics, Chemistry and Biology to promote hands-on learning and scientific inquiry.</p>
+                </div>
+                
+                <div class="feature-card fade-in" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>Library</h3>
+                    <p>Extensive collection of books, periodicals and digital resources to encourage reading and research skills.</p>
+                </div>
+                
+                <div class="feature-card fade-in" style="animation-delay: 0.6s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Remedial Classes</h3>
+                    <p>Special attention for students needing extra help to ensure no child is left behind in their learning journey.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About us</h3>
+                <p>We provide the highest quality education so that all of our students are empowered to lead productive and fulfilling lives as lifelong learners and responsible citizens.</p>
+                <!-- Social Media Icons -->
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Khidwai English School<br>R.M.L Nagar, 2nd Stage<br>Shimoga 577205</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+919480764329</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>khidwaibrilient314@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="alumini.html">Application</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="facilites.html">Facilities</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+           
+            <div class="footer-column">
+                <h3>WE'RE PROUD OF</h3>
+                <ul class="footer-proud-list">
+                    <li>100% Results</li>
+                    <li>Sports & Games</li>
+                    <li>Transport Facilities</li>
+                    <li>Well Equipped Laboratories</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;<script>document.write(new Date().getFullYear());</script>   All Right reserved by <a href="https://schoolcrp.in/" target="_blank"style="color: white;">Khidwai English School</a> </p>
+            <p>
+                Designed and Developed by 
+                <a href="https://mitrasoftwares.in" target="_blank" style="color: white;">Mitra Softwares</a>
+              </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle with null checks
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    const menuIcon = mobileMenuBtn.querySelector('i');
+                    if (menuIcon) {
+                        menuIcon.classList.replace('fa-times', 'fa-bars');
+                    }
+                });
+            });
+        }
+    
+        // Banner Slider with existence check
+        const slides = document.querySelectorAll('.banner-slide');
+        if (slides.length > 0) {
+            let currentSlide = 0;
+            
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Auto slide every 5 seconds
+            const bannerInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
+        }
+    
+        // Testimonial Slider with existence check
+        const testimonials = document.querySelectorAll('.testimonial-slide');
+        if (testimonials.length > 0) {
+            let currentTestimonial = 0;
+            
+            function showTestimonial(n) {
+                testimonials.forEach(t => t.classList.remove('active'));
+                currentTestimonial = (n + testimonials.length) % testimonials.length;
+                testimonials[currentTestimonial].classList.add('active');
+            }
+            
+            // Auto slide every 7 seconds
+            const testimonialInterval = setInterval(() => showTestimonial(currentTestimonial + 1), 7000);
+        }
+    
+        // Safe element modification
+        const someElement = document.getElementById('someElement');
+        if (someElement) {
+            someElement.textContent = "Some text";
+        }
+    
+        // Scroll Animations
+        function checkIfInView() {
+            document.querySelectorAll('.slide-up, .fade-in').forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = 1;
+                    if (element.classList.contains('slide-up')) {
+                        element.style.transform = 'translateY(0)';
+                    }
+                }
+            });
+        }
+    
+        // Active Page Highlighting
+        function setActivePage() {
+            const path = window.location.pathname;
+            let currentPage;
+    
+            if (path === '/' || path.includes('index.html')) {
+                currentPage = 'index.html';
+            } else {
+                currentPage = path.split('/').pop();
+            }
+    
+            document.querySelectorAll('nav ul li a, .mobile-menu ul li a').forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === currentPage);
+            });
+        }
+    
+        // Initialize everything when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setActivePage();
+            checkIfInView();
+            window.addEventListener('scroll', checkIfInView);
+            
+            // Clean up intervals when leaving page
+            window.addEventListener('beforeunload', function() {
+                if (bannerInterval) clearInterval(bannerInterval);
+                if (testimonialInterval) clearInterval(testimonialInterval);
+            });
+        });
+    </script>
+</body>
+</html>

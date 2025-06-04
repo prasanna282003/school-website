@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Facilities - Khidwai English School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8B4513; /* SaddleBrown */
+            --secondary-color: #DAA520; /* GoldenRod */
+            --accent-color: #A0522D; /* Sienna */
+            --light-color: #F5F5DC; /* Beige */
+            --dark-color: #333;
+            --text-color: #555;
+            --white: #fff;
+            --highlight-color: #CD853F; /* Peru */
+            --light-brown: #DEB887; /* BurlyWood */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .logo img {
+            height: 70px;
+            margin-right: 15px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            padding: 10px 0;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            padding: 1rem 5%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+        }
+        
+        .mobile-menu ul li {
+            margin-bottom: 1rem;
+        }
+        
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            display: block;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--light-color);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+        
+        /* Facilities Hero Section */
+        .facilities-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/s1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 3rem;
+        }
+        
+        .facilities-hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .facilities-hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Facilities Section */
+        .facilities-container {
+            padding: 0 5% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .facilities-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .facilities-intro h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .facilities-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Facilities Content */
+        .facilities-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .facility-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .facility-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .facility-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .facility-card:hover .facility-img img {
+            transform: scale(1.1);
+        }
+        
+        .facility-info {
+            padding: 1.5rem;
+        }
+        
+        .facility-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .facility-info p {
+            margin-bottom: 1.2rem;
+            color: var(--text-color);
+        }
+        
+        .read-more-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .read-more-btn:hover {
+            background-color: var(--highlight-color);
+            color: var(--white);
+        }
+        
+        /* Modal Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background-color: var(--white);
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1.5rem;
+            position: relative;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--white);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: var(--secondary-color);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .modal-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-body p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .modal-features {
+            margin: 1.5rem 0;
+        }
+        
+        .modal-features h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .modal-features ul {
+            list-style-type: none;
+        }
+        
+        .modal-features li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 0.8rem;
+        }
+        
+        .modal-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 4rem 5% 2rem;
+            background-image: linear-gradient(to bottom, var(--primary-color), rgba(139, 69, 19, 0.8)), url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-column p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-item i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            margin-top: 3px;
+        }
+        
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-media a {
+            color: var(--light-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .social-media a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Quick Links - Reduced spacing */
+        .footer-links-list {
+            list-style: none;
+        }
+        
+        .footer-links-list li {
+            margin-bottom: 0.1rem; /* Reduced from 0.8rem */
+        }
+        
+        .footer-links-list li a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 3px 0; /* Reduced padding */
+        }
+        
+        .footer-links-list li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .footer-proud-list {
+            list-style: none;
+        }
+        
+        .footer-proud-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-proud-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            gap: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .facilities-hero {
+                height: 250px;
+            }
+            
+            .facilities-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .facilities-hero-content p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0.8rem 3%;
+            }
+            
+            .logo img {
+                height: 50px;
+                margin-right: 10px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+            
+            .facilities-hero {
+                height: 220px;
+            }
+            
+            .mobile-menu {
+                padding: 1rem 3%;
+            }
+            
+            .modal-content {
+                margin: 20px auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .facilities-hero {
+                height: 200px;
+            }
+            
+            .facilities-hero-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .facilities-hero-content p {
+                font-size: 0.9rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-contact-item {
+                justify-content: center;
+            }
+            
+            .footer-links-list li a {
+                text-align: center;
+            }
+            
+            .social-media {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .facilities-hero {
+                height: 180px;
+            }
+            
+            .facilities-hero-content h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+            
+            .modal-body {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Active Page Highlighting */
+        nav ul li a.active {
+            color: var(--secondary-color);
+        }
+
+        nav ul li a.active::after {
+            width: 100%;
+            background-color: var(--secondary-color);
+        }
+
+        /* For mobile menu */
+        .mobile-menu ul li a.active {
+            color: var(--secondary-color);
+            padding-left: 10px;
+            border-left: 3px solid var(--secondary-color);
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Khidwai English School Logo">
+                <div class="logo-text">
+                    <h1>Khidwai English School</h1>
+                    <p>Excellence in Education</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="alumini.html">Application</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="facilites.html" class="active">Facilities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="alumini.html">Application</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="facilites.html" class="active">Facilities</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Facilities Hero Section -->
+    <section class="facilities-hero">
+        <div class="facilities-hero-content">
+            <h1 class="slide-up">Our Facilities</h1>
+            <p class="fade-in">State-of-the-art infrastructure designed to enhance learning and development</p>
+        </div>
+    </section>
+
+    <!-- Facilities Content Section -->
+    <div class="facilities-container">
+        <div class="facilities-intro slide-up">
+            <h2>World-Class Learning Environment</h2>
+            <p>At Khidwai English School, we provide modern facilities that create an optimal learning environment for our students. Our infrastructure is designed to support academic excellence, physical development, and creative expression.</p>
+        </div>
+
+        <!-- Facilities Cards -->
+        <div class="facilities-content">
+            <!-- Facility 1 -->
+            <div class="facility-card slide-up">
+                <div class="facility-img">
+                    <img src="images/smart.jpg" alt="Smart Classrooms">
+                </div>
+                <div class="facility-info">
+                    <h3>Smart Classrooms</h3>
+                    <p>Digitally equipped classrooms with interactive whiteboards, projectors, and audio-visual aids to enhance the learning experience.</p>
+                    <a href="#" class="read-more-btn" data-modal="modal1">Read More</a>
+                </div>
+            </div>
+
+            <!-- Facility 3 -->
+            <div class="facility-card slide-up">
+                <div class="facility-img">
+                    <img src="images/lb-1.jpg" alt="Computer Lab">
+                </div>
+                <div class="facility-info">
+                    <h3>Computer Laboratory</h3>
+                    <p>Modern computer lab with high-speed internet, latest software, and individual workstations for students.</p>
+                    <a href="#" class="read-more-btn" data-modal="modal3">Read More</a>
+                </div>
+            </div>
+
+            <!-- Facility 4 -->
+            <div class="facility-card slide-up">
+                <div class="facility-img">
+                    <img src="images/sp-3.JPG" alt="Sports Facilities">
+                </div>
+                <div class="facility-info">
+                    <h3>Sports Facilities</h3>
+                    <p>Spacious playgrounds for cricket, football, basketball, volleyball, and indoor games like chess and table tennis.</p>
+                    <a href="#" class="read-more-btn" data-modal="modal4">Read More</a>
+                </div>
+            </div>
+
+            <!-- Facility 5 -->
+            <div class="facility-card slide-up">
+                <div class="facility-img">
+                    <img src="images/lib-1.jpg" alt="Library">
+                </div>
+                <div class="facility-info">
+                    <h3>Library</h3>
+                    <p>Well-stocked library with a vast collection of books, journals, and digital resources for students and staff.</p>
+                    <a href="#" class="read-more-btn" data-modal="modal5">Read More</a>
+                </div>
+            </div>
+           
+            <!-- Facility 8 -->
+            <div class="facility-card slide-up">
+                <div class="facility-img">
+                    <img src="images/trans2.jpg" alt="Transport">
+                </div>
+                <div class="facility-info">
+                    <h3>Transport Facilities</h3>
+                    <p>Safe and reliable school bus service covering all major routes with trained drivers and attendants.</p>
+                    <a href="#" class="read-more-btn" data-modal="modal8">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Popups -->
+    <!-- Modal 1 - Smart Classrooms -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Smart Classrooms</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Smart Classrooms" class="modal-img">
+                <p>Our smart classrooms are designed to make learning interactive and engaging through the use of modern technology. Each classroom is equipped with:</p>
+                <div class="modal-features">
+                    <ul>
+                        <li>Interactive whiteboards with touch-screen capability</li>
+                        <li>High-definition projectors and audio systems</li>
+                        <li>Digital content aligned with curriculum</li>
+                        <li>Internet connectivity for real-time information access</li>
+                        <li>Comfortable and ergonomic seating arrangements</li>
+                        <li>Proper lighting and ventilation systems</li>
+                    </ul>
+                </div>
+                <p>These digital classrooms help teachers present complex concepts in an easy-to-understand visual format, making learning more effective and enjoyable for students.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 - Science Labs -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Science Laboratories</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a9e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Science Labs" class="modal-img">
+                <p>Our well-equipped science laboratories provide students with hands-on experience to complement theoretical learning. We have separate labs for physics, chemistry, and biology, each designed to meet international standards.</p>
+                <div class="modal-features">
+                    <h4>Physics Lab Features:</h4>
+                    <ul>
+                        <li>Modern equipment for mechanics, optics, and electricity experiments</li>
+                        <li>Digital measurement instruments</li>
+                        <li>Demonstration tables with power supply</li>
+                    </ul>
+                    
+                    <h4>Chemistry Lab Features:</h4>
+                    <ul>
+                        <li>Fume hoods and proper ventilation</li>
+                        <li>Chemical storage with safety cabinets</li>
+                        <li>Digital balances and modern glassware</li>
+                    </ul>
+                    
+                    <h4>Biology Lab Features:</h4>
+                    <ul>
+                        <li>Microscopes with digital imaging</li>
+                        <li>Specimen collection and models</li>
+                        <li>Dissection equipment with proper disposal</li>
+                    </ul>
+                </div>
+                <p>All labs are supervised by qualified instructors and maintained with strict safety protocols to ensure a secure learning environment.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 - Computer Lab -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Computer Laboratory</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Computer Lab" class="modal-img">
+                <p>Our computer lab is equipped with the latest technology to prepare students for the digital world. The lab provides a platform for learning programming, digital literacy, and research skills.</p>
+                <div class="modal-features">
+                    <ul>
+                        <li>40+ high-performance computers with latest specifications</li>
+                        <li>High-speed internet connectivity</li>
+                        <li>Licensed software for programming, graphic design, and office applications</li>
+                        <li>Interactive learning software</li>
+                        <li>Projector and audio system for demonstrations</li>
+                        <li>Air-conditioned environment for equipment protection</li>
+                        <li>Networked printers and scanners</li>
+                    </ul>
+                </div>
+                <p>Students learn various computer applications, coding languages, and digital skills under the guidance of experienced faculty members.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 - Sports Facilities -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sports Facilities</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sports Facilities" class="modal-img">
+                <p>We believe in the holistic development of students, and our sports facilities are designed to promote physical fitness, teamwork, and sportsmanship. Our campus features:</p>
+                <div class="modal-features">
+                    <h4>Outdoor Facilities:</h4>
+                    <ul>
+                        <li>Cricket ground with practice nets</li>
+                        <li>Football field with proper markings</li>
+                        <li>Basketball court with floodlights</li>
+                        <li>Volleyball court</li>
+                        <li>400m running track</li>
+                        <li>Long jump and high jump pits</li>
+                    </ul>
+                    
+                    <h4>Indoor Facilities:</h4>
+                    <ul>
+                        <li>Table tennis tables</li>
+                        <li>Chess and carrom boards</li>
+                        <li>Badminton court</li>
+                        <li>Gymnastics equipment</li>
+                        <li>Yoga and meditation room</li>
+                    </ul>
+                </div>
+                <p>We have qualified coaches for various sports and regularly participate in inter-school competitions. Annual sports day is a major event in our school calendar.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5 - Library -->
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>School Library</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1562774053-701939a5854b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Library" class="modal-img">
+                <p>Our library is a treasure trove of knowledge with a vast collection of books, periodicals, and digital resources. The library provides a quiet space for study and research.</p>
+                <div class="modal-features">
+                    <ul>
+                        <li>15,000+ books covering various subjects</li>
+                        <li>Reference section with encyclopedias and dictionaries</li>
+                        <li>Fiction and non-fiction collections</li>
+                        <li>Periodicals and magazines section</li>
+                        <li>Digital library with e-books and online journals</li>
+                        <li>Reading area with comfortable seating</li>
+                        <li>Computer terminals for research</li>
+                        <li>Photocopying facility</li>
+                    </ul>
+                </div>
+                <p>The library is managed by a qualified librarian who assists students in finding resources and developing research skills. We regularly update our collection to include new publications.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 8 - Transport -->
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Transport Facilities</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Transport" class="modal-img">
+                <p>We provide safe and reliable transportation services for students with a fleet of well-maintained buses covering all major routes in the area.</p>
+                <div class="modal-features">
+                    <ul>
+                        <li>GPS-enabled buses for real-time tracking</li>
+                        <li>Female attendants on all buses</li>
+                        <li>First-aid kits and emergency protocols</li>
+                        <li>Regular maintenance and safety checks</li>
+                        <li>Trained and experienced drivers</li>
+                        <li>Pick-up and drop-off points near residences</li>
+                        <li>Seat belts and child safety features</li>
+                    </ul>
+                </div>
+                <p>Parents can track bus locations through our school app, and we maintain strict discipline and punctuality. Transport fees are charged separately and routes are optimized each year based on student needs.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Khidwai English School has been providing quality education since 1985. We are committed to nurturing young minds and preparing them for future challenges.</p>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123 School Road, Khidwai, Maharashtra 123456</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>+91 1234567890</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@khidwaischool.edu</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Mon-Fri: 8:00 AM - 4:00 PM</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="alumini.html">Application</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="facilites.html">Facilities</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>We're Proud Of</h3>
+                <ul class="footer-proud-list">
+                    <li>30+ Years of Educational Excellence</li>
+                    <li>100% Board Exam Pass Rate</li>
+                    <li>Qualified & Experienced Faculty</li>
+                    <li>State-of-the-Art Facilities</li>
+                    <li>Holistic Development Approach</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>copyright &copy;<script>document.write(new Date().getFullYear());</script>   All Right reserved by <a href="https://schoolcrp.in/" target="_blank"style="color: white;">Khidwai English School</a> </p>
+            <p>
+                Designed and Developed by 
+                <a href="https://mitrasoftwares.in" target="_blank" style="color: white;">Mitra Softwares</a>
+              </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Facilities Tab Filtering
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const facilityCards = document.querySelectorAll('.facility-card');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const category = btn.getAttribute('data-tab');
+                
+                // Filter facilities
+                facilityCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Modal Functionality
+        const modalBtns = document.querySelectorAll('.read-more-btn');
+        const modals = document.querySelectorAll('.modal');
+        const closeBtns = document.querySelectorAll('.close-btn');
+        
+        // Open modal
+        modalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modalId = btn.getAttribute('data-modal');
+                document.getElementById(modalId).style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+        
+        // Close modal
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = btn.closest('.modal');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            });
+        });
+        
+        // Close when clicking outside modal content
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            }
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.slide-up, .fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transition = 'opacity 1s ease';
+        });
+        
+        // Run on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>

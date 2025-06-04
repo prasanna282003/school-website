@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Khidwai English School - Excellence in Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8B4513; /* SaddleBrown */
+            --secondary-color: #DAA520; /* GoldenRod */
+            --accent-color: #A0522D; /* Sienna */
+            --light-color: #F5F5DC; /* Beige */
+            --dark-color: #333;
+            --text-color: #555;
+            --white: #fff;
+            --highlight-color: #CD853F; /* Peru */
+            --light-brown: #DEB887; /* BurlyWood */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .logo img {
+            height: 70px;
+            margin-right: 15px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            padding: 10px 0;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            padding: 1rem 5%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+        }
+        
+        .mobile-menu ul li {
+            margin-bottom: 1rem;
+        }
+        
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            display: block;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--light-color);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+        
+        /* Banner Styles */
+        .banner-container {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .banner-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .banner-slide.active {
+            opacity: 1;
+        }
+        
+        .banner-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 1rem;
+            width: calc(100% - 2rem);
+        }
+        
+        .banner-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .banner-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .banner-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            text-align: center;
+            min-width: 150px;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--dark-color);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 4rem 5%;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+            background-color: var(--light-color);
+            border: 1px solid var(--light-brown);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: var(--highlight-color);
+            color: var(--white);
+        }
+        
+        .feature-card:hover h3 {
+            color: var(--white);
+        }
+        
+        .feature-card:hover .feature-icon {
+            color: var(--white);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+        
+        /* Welcome Section */
+        .welcome {
+            padding: 4rem 5%;
+            background-color: var(--light-color);
+            background-image: linear-gradient(to bottom, var(--light-color), rgba(255,255,255,0.8)), url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .welcome-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .welcome-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 5px solid var(--white);
+        }
+        
+        .welcome-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .welcome-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .welcome-content {
+            flex: 1;
+        }
+        
+        .welcome-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .welcome-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .welcome-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Categories Section */
+        .categories {
+            padding: 4rem 5%;
+            background-color: var(--white);
+            background-image: linear-gradient(to bottom, var(--white), rgba(255,255,255,0.8)), url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .categories-container {
+            display: flex;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .categories-list {
+            flex: 1;
+        }
+        
+        .category-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+            background-color: var(--light-color);
+            transition: all 0.3s;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .category-item:hover {
+            transform: translateX(10px);
+            background-color: var(--highlight-color);
+            color: var(--white);
+        }
+        
+        .category-item:hover h3 {
+            color: var(--white);
+        }
+        
+        .category-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .categories-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 5px solid var(--white);
+        }
+        
+        .categories-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .categories-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 5%;
+            background-color: var(--light-color);
+            text-align: center;
+            background-image: linear-gradient(to bottom, var(--light-color), rgba(255,255,255,0.8)), url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+        
+        .testimonial-slide {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-slide.active {
+            opacity: 1;
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-content::before,
+        .testimonial-content::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary-color);
+            opacity: 0.3;
+            position: absolute;
+        }
+        
+        .testimonial-content::before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-content::after {
+            bottom: -40px;
+            right: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 4rem 5% 2rem;
+            background-image: linear-gradient(to bottom, var(--primary-color), rgba(139, 69, 19, 0.8)), url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-column p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-item i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            margin-top: 3px;
+        }
+        
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-media a {
+            color: var(--light-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .social-media a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Quick Links - Reduced spacing */
+        .footer-links-list {
+            list-style: none;
+        }
+        
+        .footer-links-list li {
+            margin-bottom: 0.1rem; /* Reduced from 0.8rem */
+        }
+        
+        .footer-links-list li a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 3px 0; /* Reduced padding */
+        }
+        
+        .footer-links-list li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .footer-proud-list {
+            list-style: none;
+        }
+        
+        .footer-proud-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-proud-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            gap: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .welcome-container, .categories-container {
+                flex-direction: column;
+            }
+            
+            .welcome-image, .categories-image {
+                width: 100%;
+            }
+            
+            .categories-image {
+                height: 400px;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0.8rem 3%;
+            }
+            
+            .logo img {
+                height: 50px;
+                margin-right: 10px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+            
+            .banner-container {
+                height: 400px;
+            }
+            
+            .banner-content {
+                padding: 1.5rem;
+            }
+            
+            .banner-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .banner-content p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                min-width: 120px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .welcome-content h2, .testimonials h2 {
+                font-size: 1.8rem;
+            }
+            
+            .testimonial-slider {
+                height: 350px;
+            }
+            
+            .feature-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .banner-container {
+                height: 350px;
+            }
+            
+            .banner-content {
+                padding: 1rem;
+                width: calc(100% - 2rem);
+            }
+            
+            .banner-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .banner-content p {
+                font-size: 0.9rem;
+            }
+            
+            .banner-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-slider {
+                height: 400px;
+            }
+            
+            .testimonial-slide {
+                padding: 1.5rem;
+            }
+            
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-image {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .category-item {
+                padding: 1rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-contact-item {
+                justify-content: center;
+            }
+            
+            .mobile-menu {
+                padding: 1rem 3%;
+            }
+            
+            .footer-links-list li a {
+                text-align: center;
+            }
+            
+            .social-media {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .banner-container {
+                height: 300px;
+            }
+            
+            .banner-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .welcome-content h2, .testimonials h2 {
+                font-size: 1.5rem;
+            }
+            
+            .testimonial-slider {
+                height: 450px;
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Add this to your existing CSS */
+nav ul li a.active {
+    color: var(--secondary-color);
+}
+
+nav ul li a.active::after {
+    width: 100%;
+    background-color: var(--secondary-color);
+}
+
+/* For mobile menu */
+.mobile-menu ul li a.active {
+    color: var(--secondary-color);
+    padding-left: 10px;
+    border-left: 3px solid var(--secondary-color);
+    border-bottom: none;
+}
+ 
+        /* Animation Classes */
+        .slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Khidwai English School Logo">
+                <div class="logo-text">
+                    <h1>Khidwai English School</h1>
+                    <p>Excellence in Education</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="alumini.html">Application</a></li>
+                    <li><a href="Academics.html">Academics</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="facilites.html">Facilities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="alumini.html">Application</a></li>
+                <li><a href="Academics.html">Academics</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="facilites.html">Facilities</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Banner Slider Section -->
+    <section class="banner-container">
+        <div class="banner-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/sld-1.jpg');">
+            <div class="banner-content">
+                <h2>Quality Education for Bright Futures</h2>
+                <p>At Khidwai English School, we nurture young minds to become responsible global citizens through holistic education.</p>
+                <div class="banner-buttons">
+                    <a href="#" class="btn btn-primary">Read More</a>
+                    <a href="alumini.html" class="btn btn-secondary">Join Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="banner-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/sld-2.JPG');">
+            <div class="banner-content">
+                <h2>State-of-the-Art Facilities</h2>
+                <p>Our campus is equipped with modern facilities to provide the best learning environment for your child.</p>
+                <div class="banner-buttons">
+                    <a href="#" class="btn btn-primary">Read More</a>
+                    <a href="alumini.html" class="btn btn-secondary">Join Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="banner-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/s1.jpg');">
+            <div class="banner-content">
+                <h2>Experienced & Dedicated Faculty</h2>
+                <p>Our teachers are committed to bringing out the best in every student through personalized attention.</p>
+                <div class="banner-buttons">
+                    <a href="#" class="btn btn-primary">Read More</a>
+                    <a href="alumini.html" class="btn btn-secondary">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-title">
+            <h2>Why Choose Us</h2>
+        </div>
+        <div class="features-container">
+            <div class="feature-card slide-up" style="animation-delay: 0.2s;">
+                <div class="feature-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Skilled Instructors</h3>
+                <p>Our highly qualified teachers provide personalized attention to ensure every student's success.</p>
+            </div>
+            <div class="feature-card slide-up" style="animation-delay: 0.4s;">
+                <div class="feature-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Special Classes</h3>
+                <p>Remedial and advanced classes to cater to individual learning needs of students.</p>
+            </div>
+            <div class="feature-card slide-up" style="animation-delay: 0.6s;">
+                <div class="feature-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Home Projects</h3>
+                <p>Practical assignments that encourage creativity and application of classroom learning.</p>
+            </div>
+            <div class="feature-card slide-up" style="animation-delay: 0.8s;">
+                <div class="feature-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>Book Library</h3>
+                <p>Well-stocked library with a wide range of books to foster reading habits among students.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="welcome-container">
+            <div class="welcome-image">
+                <img src="images/s1.jpg" alt="Khidwai English School">
+            </div>
+            <div class="welcome-content fade-in">
+                <h2>Welcome to Khidwai English School</h2>
+                <p>Established with a vision to provide quality education, Khidwai English School has been a beacon of learning in Shimoga for over two decades. Our mission is to develop well-rounded, confident and responsible individuals who aspire to achieve their full potential.</p>
+                <p>We provide a nurturing environment where students are encouraged to explore their potential and achieve their personal best in all aspects of school life. Our comprehensive curriculum and range of extracurricular activities provide the perfect balance to nurture happy, well-educated children.</p>
+                <p>We maintain an inclusive environment that acknowledges and respects children from diverse family and cultural backgrounds. Our staff is committed to providing your child with high-quality education and care in a safe, respectful and inclusive environment that builds a foundation for life-long learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="categories-container">
+            <div class="categories-list">
+                <h2 class="fade-in">Our Core Values</h2>
+                <div class="category-item slide-up" style="animation-delay: 0.2s;">
+                    <h3>EXCELLENCE</h3>
+                    <p>We pursue the highest standards in academic achievement and organisational performance.</p>
+                </div>
+                <div class="category-item slide-up" style="animation-delay: 0.4s;">
+                    <h3>EQUITY</h3>
+                    <p>We foster an environment that serves all students and aspires to eliminate the achievement gap.</p>
+                </div>
+                <div class="category-item slide-up" style="animation-delay: 0.6s;">
+                    <h3>PURPOSE</h3>
+                    <p>Our purpose is to champion a new model of learning that connects the timeless lessons from nature to a relevant and effective preparation for fast-changing future.</p>
+                </div>
+                <div class="category-item slide-up" style="animation-delay: 0.8s;">
+                    <h3>INTEGRITY</h3>
+                    <p>We build positive relationships through honesty, respect and compassion, which enhance the self-esteem, safety, and well-being of our students, parents and staff.</p>
+                </div>
+            </div>
+            <div class="categories-image">
+                <img src="images/s6.JPG" alt="School Activities">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Our Teachers Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-slide active">
+                <p class="testimonial-content">Teaching at Khidwai English School has been an incredibly rewarding experience. The school's commitment to holistic education allows us to nurture not just academic excellence but also the character and values of our students.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Teacher">
+                    </div>
+                    <div class="author-info">
+                        <h4>Mrs. Radha Sharma</h4>
+                        <p>Senior Mathematics Teacher</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-slide">
+                <p class="testimonial-content">The supportive environment at Khidwai English School enables teachers to innovate in their teaching methods. I've seen students thrive when given the right combination of challenge and encouragement.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Teacher">
+                    </div>
+                    <div class="author-info">
+                        <h4>Mr. Vijay Kumar</h4>
+                        <p>Science Department Head</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-slide">
+                <p class="testimonial-content">What makes Khidwai special is the sense of community. Teachers, students and parents work together to create an environment where every child feels valued and empowered to reach their full potential.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Teacher">
+                    </div>
+                    <div class="author-info">
+                        <h4>Ms. Priya Nair</h4>
+                        <p>English Faculty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About us</h3>
+                <p>We provide the highest quality education so that all of our students are empowered to lead productive and fulfilling lives as lifelong learners and responsible citizens.</p>
+                <!-- Social Media Icons -->
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Khidwai English School<br>R.M.L Nagar, 2nd Stage<br>Shimoga 577205</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+919480764329</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>khidwaibrilient314@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="alumini.html">Application</a></li>
+                    <li><a href="Academics.html">Academics</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="facilites.html">Facilities</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+           
+            <div class="footer-column">
+                <h3>WE'RE PROUD OF</h3>
+                <ul class="footer-proud-list">
+                    <li>100% Results</li>
+                    <li>Sports & Games</li>
+                    <li>Transport Facilities</li>
+                    <li>Well Equipped Laboratories</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;<script>document.write(new Date().getFullYear());</script>   All Right reserved by <a href="https://schoolcrp.in/" target="_blank"style="color: white;">Khidwai English School</a> </p>
+            <p>
+                Designed and Developed by 
+                <a href="https://mitrasoftwares.in" target="_blank" style="color: white;">Mitra Softwares</a>
+              </p>
+              
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle with null checks
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    const menuIcon = mobileMenuBtn.querySelector('i');
+                    if (menuIcon) {
+                        menuIcon.classList.replace('fa-times', 'fa-bars');
+                    }
+                });
+            });
+        }
+    
+        // Banner Slider with existence check
+        const slides = document.querySelectorAll('.banner-slide');
+        if (slides.length > 0) {
+            let currentSlide = 0;
+            
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Auto slide every 5 seconds
+            const bannerInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
+        }
+    
+        // Testimonial Slider with existence check
+        const testimonials = document.querySelectorAll('.testimonial-slide');
+        if (testimonials.length > 0) {
+            let currentTestimonial = 0;
+            
+            function showTestimonial(n) {
+                testimonials.forEach(t => t.classList.remove('active'));
+                currentTestimonial = (n + testimonials.length) % testimonials.length;
+                testimonials[currentTestimonial].classList.add('active');
+            }
+            
+            // Auto slide every 7 seconds
+            const testimonialInterval = setInterval(() => showTestimonial(currentTestimonial + 1), 7000);
+        }
+    
+        // Safe element modification
+        const someElement = document.getElementById('someElement');
+        if (someElement) {
+            someElement.textContent = "Some text";
+        }
+    
+        // Scroll Animations
+        function checkIfInView() {
+            document.querySelectorAll('.slide-up, .fade-in').forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = 1;
+                    if (element.classList.contains('slide-up')) {
+                        element.style.transform = 'translateY(0)';
+                    }
+                }
+            });
+        }
+    
+        // Active Page Highlighting
+        function setActivePage() {
+            const path = window.location.pathname;
+            let currentPage;
+    
+            if (path === '/' || path.includes('index.html')) {
+                currentPage = 'index.html';
+            } else {
+                currentPage = path.split('/').pop();
+            }
+    
+            document.querySelectorAll('nav ul li a, .mobile-menu ul li a').forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === currentPage);
+            });
+        }
+    
+        // Initialize everything when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setActivePage();
+            checkIfInView();
+            window.addEventListener('scroll', checkIfInView);
+            
+            // Clean up intervals when leaving page
+            window.addEventListener('beforeunload', function() {
+                if (bannerInterval) clearInterval(bannerInterval);
+                if (testimonialInterval) clearInterval(testimonialInterval);
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>

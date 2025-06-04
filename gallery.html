@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gallery - Khidwai English School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8B4513; /* SaddleBrown */
+            --secondary-color: #DAA520; /* GoldenRod */
+            --accent-color: #A0522D; /* Sienna */
+            --light-color: #F5F5DC; /* Beige */
+            --dark-color: #333;
+            --text-color: #555;
+            --white: #fff;
+            --highlight-color: #CD853F; /* Peru */
+            --light-brown: #DEB887; /* BurlyWood */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .logo img {
+            height: 70px;
+            margin-right: 15px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            padding: 10px 0;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            padding: 1rem 5%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+        }
+        
+        .mobile-menu ul li {
+            margin-bottom: 1rem;
+        }
+        
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            display: block;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--light-color);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 4rem 5%;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: var(--light-color);
+            border: 1px solid var(--light-brown);
+            color: var(--primary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-color: var(--secondary-color);
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 4/3;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-item-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-item-caption h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .gallery-item-category {
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5vh;
+        }
+        
+        .modal-caption {
+            text-align: center;
+            color: var(--white);
+            padding: 10px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .modal-caption h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--white);
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: var(--secondary-color);
+            transform: rotate(90deg);
+        }
+        
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 30px;
+            transition: 0.3s;
+            user-select: none;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .next {
+            right: 0;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            color: var(--secondary-color);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 4rem 5% 2rem;
+            background-image: linear-gradient(to bottom, var(--primary-color), rgba(139, 69, 19, 0.8)), url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-column p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-item i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            margin-top: 3px;
+        }
+        
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-media a {
+            color: var(--light-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .social-media a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Quick Links - Reduced spacing */
+        .footer-links-list {
+            list-style: none;
+        }
+        
+        .footer-links-list li {
+            margin-bottom: 0.1rem; /* Reduced from 0.8rem */
+        }
+        
+        .footer-links-list li a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 3px 0; /* Reduced padding */
+        }
+        
+        .footer-links-list li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .footer-proud-list {
+            list-style: none;
+        }
+        
+        .footer-proud-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-proud-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            gap: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0.8rem 3%;
+            }
+            
+            .logo img {
+                height: 50px;
+                margin-right: 10px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .mobile-menu {
+                padding: 1rem 3%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .gallery-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-contact-item {
+                justify-content: center;
+            }
+            
+            .footer-links-list li a {
+                text-align: center;
+            }
+            
+            .social-media {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Add this to your existing CSS */
+nav ul li a.active {
+    color: var(--secondary-color);
+}
+
+nav ul li a.active::after {
+    width: 100%;
+    background-color: var(--secondary-color);
+}
+
+/* For mobile menu */
+.mobile-menu ul li a.active {
+    color: var(--secondary-color);
+    padding-left: 10px;
+    border-left: 3px solid var(--secondary-color);
+    border-bottom: none;
+}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Khidwai English School Logo">
+                <div class="logo-text">
+                    <h1>Khidwai English School</h1>
+                    <p>Excellence in Education</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="alumini.html">Application</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="facilites.html">Facilities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="alumini.html">Application</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="facilites.html">Facilities</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="section-title">
+            <h2>Our Gallery</h2>
+        </div>
+        
+        <div class="gallery-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="cultural">Cultural</button>
+            <button class="filter-btn" data-filter="sports">Sports</button>
+            <button class="filter-btn" data-filter="classroom">Classrooms</button>
+            <button class="filter-btn" data-filter="facilities">Facilities</button>
+            <button class="filter-btn" data-filter="events">Kinder-Garden</button>
+        </div>
+        
+        <div class="gallery-container">
+            <!-- Cultural Images -->
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-1.jpg" alt="Cultural Performance">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Annual Day Performance</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-2.jpg" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-3.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-4.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-5.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-6.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-7.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-8.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-9.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-10.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-11.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-12.jpg" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-13.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-14.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-15.JPG" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-16.jpg" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-17.jpg" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-18.jpg" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-19.jpg" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-20.jpg" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-21.jpg" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="cultural">
+                <img src="images/clt-22.jpg" alt="Dance Competition">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Cultural</span>
+                    <h3>Inter-school Dance Competition</h3>
+                </div>
+            </div>
+            
+            <!-- Sports Images -->
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-1.jpg" alt="Sports Day">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Annual Sports Day</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-2.JPG" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-3.JPG" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-4.JPG" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-5.JPG" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-6.JPG" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-7.JPG" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-8.JPG" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-9.jpg" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-10.jpg" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-11.jpg" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-12.jpg" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="sports">
+                <img src="images/sp-13.JPG" alt="Cricket Match">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Sports</span>
+                    <h3>Inter-school Cricket Tournament</h3>
+                </div>
+            </div> 
+
+
+            <!-- Classroom Images -->
+            <div class="gallery-item" data-category="classroom">
+                <img src="images/cls-1.jpg" alt="Classroom">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Classroom</span>
+                    <h3>Interactive Learning Session</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="classroom">
+                <img src="images/cls-2.jpg" alt="Science Class">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Classroom</span>
+                    <h3>Science Practical Class</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="classroom">
+                <img src="images/cls-3.jpg" alt="Science Class">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Classroom</span>
+                    <h3>Science Practical Class</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="classroom">
+                <img src="images/cls-4.jpg" alt="Science Class">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Classroom</span>
+                    <h3>Science Practical Class</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="classroom">
+                <img src="images/cls-5.jpg" alt="Science Class">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Classroom</span>
+                    <h3>Science Practical Class</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="classroom">
+                <img src="images/cls-6.jpg" alt="Science Class">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Classroom</span>
+                    <h3>Science Practical Class</h3>
+                </div>
+            </div>
+            
+            <!-- Facilities Images -->
+            <div class="gallery-item" data-category="facilities">
+                <img src="images/lib-1.jpg" alt="Library">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Facilities</span>
+                    <h3>School Library</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="facilities">
+                <img src="images/lib-2.jpg" alt="Library">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Facilities</span>
+                    <h3>School Library</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="facilities">
+                <img src="images/lb-1.jpg" alt="Computer Lab">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Facilities</span>
+                    <h3>Computer Laboratory</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="facilities">
+                <img src="images/lb-2.jpg" alt="Computer Lab">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Facilities</span>
+                    <h3>Computer Laboratory</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="facilities">
+                <img src="images/trans2.jpg" alt="Computer Lab">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Facilities</span>
+                    <h3>Transportation</h3>
+                </div>
+            </div>
+            
+            <!-- Events Images -->
+            <div class="gallery-item" data-category="events">
+                <img src="images/k1.jpg" alt="Independence Day">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Kinder-Garden</span>
+                    <h3>Kids</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="events">
+                <img src="images/k2.jpg" alt="Graduation">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Kinder-Garden</span>
+                    <h3>Kids</h3>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="events">
+                <img src="images/k3.jpg" alt="Science Fair">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Kinder-Garden</span>
+                    <h3>Kids</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="events">
+                <img src="images/k4.jpg" alt="Science Fair">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Kinder-Garden</span>
+                    <h3>Kids</h3>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="events">
+                <img src="images/k5.jpg" alt="Science Fair">
+                <div class="gallery-item-caption">
+                    <span class="gallery-item-category">Kinder-Garden</span>
+                    <h3>Kids</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+        <a class="prev" id="prevBtn">&#10094;</a>
+        <a class="next" id="nextBtn">&#10095;</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About us</h3>
+                <p>We provide the highest quality education so that all of our students are empowered to lead productive and fulfilling lives as lifelong learners and responsible citizens.</p>
+                <!-- Social Media Icons -->
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Khidwai English School<br>R.M.L Nagar, 2nd Stage<br>Shimoga 577205</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+919480764329</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>khidwaibrilient314@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="alumini.html">Application</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="facilites.html">Facilities</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+           
+            <div class="footer-column">
+                <h3>WE'RE PROUD OF</h3>
+                <ul class="footer-proud-list">
+                    <li>100% Results</li>
+                    <li>Sports & Games</li>
+                    <li>Transport Facilities</li>
+                    <li>Well Equipped Laboratories</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;<script>document.write(new Date().getFullYear());</script>   All Right reserved by <a href="https://schoolcrp.in/" target="_blank"style="color: white;">Khidwai English School</a> </p>
+            <p>
+                Designed and Developed by 
+                <a href="https://mitrasoftwares.in" target="_blank" style="color: white;">Mitra Softwares</a>
+              </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle with null checks
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    const menuIcon = mobileMenuBtn.querySelector('i');
+                    if (menuIcon) {
+                        menuIcon.classList.remove('fa-times');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                });
+            });
+        }
+    
+        // Set current year safely
+        const yearElement = document.getElementById('current-year');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+    
+        // Gallery Filter with null checks
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        if (filterBtns.length && galleryItems.length) {
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        item.style.display = (filterValue === 'all' || item.getAttribute('data-category') === filterValue) 
+                            ? 'block' 
+                            : 'none';
+                    });
+                });
+            });
+        }
+    
+        // Image Modal with comprehensive null checks
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const captionText = document.getElementById('modalCaption');
+        const closeBtn = document.querySelector('.close');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        if (modal && modalImg && captionText && closeBtn && prevBtn && nextBtn) {
+            let currentImageIndex = 0;
+            let images = [];
+            let captions = [];
+            
+            function initModal() {
+                images = [];
+                captions = [];
+                
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    if (item.style.display !== 'none') {
+                        const img = item.querySelector('img');
+                        const category = item.querySelector('.gallery-item-category');
+                        const title = item.querySelector('h3');
+                        
+                        if (img && category && title) {
+                            images.push(img.src);
+                            captions.push({
+                                category: category.textContent,
+                                title: title.textContent
+                            });
+                        }
+                    }
+                });
+            }
+            
+            function updateModal() {
+                if (images.length && captions.length) {
+                    modalImg.src = images[currentImageIndex];
+                    captionText.innerHTML = `
+                        <span class="gallery-item-category">${captions[currentImageIndex].category}</span>
+                        <h3>${captions[currentImageIndex].title}</h3>
+                    `;
+                }
+            }
+            
+            // Open modal with clicked image
+            document.querySelectorAll('.gallery-item').forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    initModal();
+                    currentImageIndex = index;
+                    updateModal();
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            // Close modal
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close when clicking outside image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Previous image
+            prevBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                updateModal();
+            });
+            
+            // Next image
+            nextBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateModal();
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (modal.style.display === 'block') {
+                    if (e.key === 'ArrowLeft') {
+                        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                        updateModal();
+                    } else if (e.key === 'ArrowRight') {
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                        updateModal();
+                    } else if (e.key === 'Escape') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            });
+        }
+    
+        // Scroll Animations with null checks
+        function initAnimations() {
+            const animatedElements = document.querySelectorAll('.slide-up, .fade-in');
+            
+            function checkIfInView() {
+                animatedElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.style.opacity = 1;
+                        if (element.classList.contains('slide-up')) {
+                            element.style.transform = 'translateY(0)';
+                        }
+                    }
+                });
+            }
+            
+            // Initial check
+            checkIfInView();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkIfInView);
+            
+            // Add animation delays to gallery items
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.1}s`;
+            });
+        }
+    
+        // Active Page Highlighting
+        function setActivePage() {
+            const path = window.location.pathname;
+            let currentPage;
+    
+            if (path === '/' || path.includes('index.html')) {
+                currentPage = 'index.html';
+            } else {
+                currentPage = path.split('/').pop();
+            }
+    
+            document.querySelectorAll('nav ul li a, .mobile-menu ul li a').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                link.classList.toggle('active', linkPage === currentPage);
+            });
+        }
+    
+        // Initialize everything when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setActivePage();
+            initAnimations();
+        });
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>About Us - Khidwai English School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8B4513; /* SaddleBrown */
+            --secondary-color: #DAA520; /* GoldenRod */
+            --accent-color: #A0522D; /* Sienna */
+            --light-color: #F5F5DC; /* Beige */
+            --dark-color: #333;
+            --text-color: #555;
+            --white: #fff;
+            --highlight-color: #CD853F; /* Peru */
+            --light-brown: #DEB887; /* BurlyWood */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .logo img {
+            height: 70px;
+            margin-right: 15px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .logo-text p {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            padding: 10px 0;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            padding: 1rem 5%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu ul {
+            list-style: none;
+        }
+        
+        .mobile-menu ul li {
+            margin-bottom: 1rem;
+        }
+        
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            display: block;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--light-color);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu ul li a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+        
+        /* About Hero Section */
+        .about-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/s1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .about-hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        .about-hero-content p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+        
+         /* Improved About School Section */
+         .about-school {
+            padding: 0 5% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        .about-content-container {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .about-content-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.05) 0%, rgba(139, 69, 19, 0.05) 100%);
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 45%;
+            max-width: 600px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+        
+        .about-content-container:hover .about-image img {
+            transform: scale(1.05);
+        }
+        
+        .about-content {
+            flex: 1;
+            padding: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-content h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .about-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .about-content p::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+        }
+        
+        .school-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            background-color: rgba(218, 165, 32, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background-color: rgba(218, 165, 32, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+        
+        /* Responsive Styles for About Section */
+        @media (max-width: 1200px) {
+            .about-content-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+                max-width: 100%;
+                min-width: 100%;
+                aspect-ratio: 16/9;
+            }
+            
+            .about-content {
+                width: 100%;
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .about-content p {
+                font-size: 1rem;
+                padding-left: 20px;
+            }
+            
+            .school-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .about-content {
+                padding: 1.8rem 1.5rem;
+            }
+            
+            .about-content p::before {
+                display: none;
+            }
+            
+            .about-content p {
+                padding-left: 0;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        
+        /* Mission Section */
+        .mission-section {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 4rem 5%;
+            margin-bottom: 4rem;
+            background-image: linear-gradient(135deg, var(--primary-color), rgba(139, 69, 19, 0.8)), url('https://www.transparenttextures.com/patterns/cream-paper.png');
+            clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+            padding: 6rem 5%;
+        }
+        
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .mission-container h2 {
+            color: var(--secondary-color);
+            margin-bottom: 3rem;
+            text-align: center;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .mission-content {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .mission-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .mission-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .mission-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .mission-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .objectives-list {
+            list-style-type: none;
+        }
+        
+        .objectives-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .objectives-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+        }
+        
+        /* Principal Section */
+        .principal-section {
+            padding: 0 5% 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .principal-card {
+            display: flex;
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .principal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, rgba(139, 69, 19, 0.1) 100%);
+            z-index: 1;
+        }
+        
+        .principal-image {
+            flex: 0 0 390px;
+            position: relative;
+            overflow: hidden;
+            object-fit: cover;
+        }
+        
+        .principal-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(218, 165, 32, 0.2));
+            z-index: 2;
+            object-fit: cover;
+        }
+        
+        .principal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .principal-card:hover .principal-image img {
+            transform: scale(1.05);
+        }
+        
+        .principal-message {
+            flex: 1;
+            padding: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .principal-message h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .principal-message h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .principal-message p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+        
+        .principal-message p.highlight {
+            font-style: italic;
+            background-color: rgba(218, 165, 32, 0.1);
+            padding: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .principal-signature {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .principal-signature::before {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: var(--secondary-color);
+            margin-right: 15px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 4rem 5% 2rem;
+            background-image: linear-gradient(to bottom, var(--primary-color), rgba(139, 69, 19, 0.8)), url('https://www.transparenttextures.com/patterns/cream-paper.png');
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-column p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact-item i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            margin-top: 3px;
+        }
+        
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-media a {
+            color: var(--light-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .social-media a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Quick Links - Reduced spacing */
+        .footer-links-list {
+            list-style: none;
+        }
+        
+        .footer-links-list li {
+            margin-bottom: 0.1rem; /* Reduced from 0.8rem */
+        }
+        
+        .footer-links-list li a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            padding: 3px 0; /* Reduced padding */
+        }
+        
+        .footer-links-list li a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .footer-proud-list {
+            list-style: none;
+        }
+        
+        .footer-proud-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-proud-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            gap: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .about-content-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+                max-width: 100%;
+                min-width: 100%;
+                aspect-ratio: 16/9;
+            }
+            
+            .about-content {
+                width: 100%;
+            }
+            
+            .principal-card {
+                flex-direction: column;
+            }
+            
+            .principal-image {
+                flex: 0 0 400px;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .about-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .principal-image {
+                flex: 0 0 350px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0.8rem 3%;
+            }
+            
+            .logo img {
+                height: 50px;
+                margin-right: 10px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+            
+            .about-hero {
+                height: 300px;
+            }
+            
+            .about-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .mobile-menu {
+                padding: 1rem 3%;
+            }
+            
+            .mission-section {
+                clip-path: polygon(0 3%, 100% 0, 100% 97%, 0 100%);
+                padding: 5rem 3%;
+            }
+            
+            .principal-message {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-hero {
+                height: 250px;
+            }
+            
+            .about-hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .about-hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .about-content {
+                padding: 1.8rem 1.5rem;
+            }
+            
+            .about-content p::before {
+                display: none;
+            }
+            
+            .about-content p {
+                padding-left: 0;
+            }
+            
+            .mission-content {
+                padding: 1.8rem;
+            }
+            
+            .principal-image {
+                flex: 0 0 250px;
+            }
+            
+            .principal-message h3 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-contact-item {
+                justify-content: center;
+            }
+            
+            .footer-links-list li a {
+                text-align: center;
+            }
+            
+            .social-media {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .about-hero {
+                height: 200px;
+            }
+            
+            .about-hero-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+            
+            .principal-message {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Animation Classes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.9s;
+        }
+        /* Add this to your existing CSS */
+nav ul li a.active {
+    color: var(--secondary-color);
+}
+
+nav ul li a.active::after {
+    width: 100%;
+    background-color: var(--secondary-color);
+}
+
+/* For mobile menu */
+.mobile-menu ul li a.active {
+    color: var(--secondary-color);
+    padding-left: 10px;
+    border-left: 3px solid var(--secondary-color);
+    border-bottom: none;
+}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Khidwai English School Logo">
+                <div class="logo-text">
+                    <h1>Khidwai English School</h1>
+                    <p>Excellence in Education</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="alumini.html">Application</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="facilites.html">Facilities</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="alumini.html">Application</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="facilites.html">Facilities</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>About Our School</h1>
+            <p>Discover the excellence in education that defines Khidwai English School</p>
+        </div>
+    </section>
+
+    <!-- Improved About School Section -->
+    <section class="about-school">
+        <div class="section-title">
+            <h2>About Our School</h2>
+        </div>
+        
+        <div class="about-content-container slide-up">
+            <div class="about-image">
+                <img src="images/s1.jpg" alt="Khidwai English School Building">
+            </div>
+            <div class="about-content">
+                <h3>Our Legacy of Excellence</h3>
+                <p>Khidwai English School is a vibrant learning environment that holds a deep reverence for and understanding of the development of the child as a physical, intellectual, social and spiritual being.</p>
+                
+                <p>At Khidwai English School, we believe that from their earliest years of schooling through early adolescence, children are forming the skills and attitudes that will drive all future academic achievement and social development.</p>
+                
+                <p>We blend school traditions with academic excellence in an environment that inspires the imagination, fosters creativity, and promotes a love of learning that lasts a lifetime.</p>
+                
+                <div class="school-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Years of Excellence</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Board Results</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Qualified Teachers</div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="mission-container">
+            <h2 class="slide-up">Mission and Objectives</h2>
+            
+            <div class="mission-grid">
+                <div class="mission-content fade-in">
+                    <h3>Our Motto: Love Conquers Everything</h3>
+                    <p>We live and breathe our motto to educate children in mind, body, and spirit every day, just as we have since our founding in 1990. Our commitment enables us to help a child of promise grow into a being of character.</p>
+                    
+                    <p>Our mission is to care for our students, and to educate them in accordance with clearly stated values; to bring out the best in every one of them; and to help them to take the next step in their lives with confidence, conviction and consideration for others.</p>
+                </div>
+                
+                <div class="mission-content fade-in delay-1">
+                    <h3>Objectives</h3>
+                    <ul class="objectives-list">
+                        <li>Educate and nurture children from pre-kg to tenth grade using the Khidwai philosophy and curriculum.</li>
+                        <li>Create a diverse and supportive environment; based on the principles of healthy social development.</li>
+                        <li>Provide educational opportunities, focusing on both curricular and co-curricular activities.</li>
+                        <li>To be a best Co-ed school positioned to offer children varieties of program designed to address their specific needs.</li>
+                        <li>Foster a culture of respect, responsibility, and lifelong learning among students.</li>
+                        <li>Develop critical thinking and problem-solving skills through innovative teaching methods.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principal Section -->
+    <section class="principal-section">
+        <div class="section-title">
+            <h2>Principal's Message</h2>
+        </div>
+        
+        <div class="principal-card slide-up delay-1">
+            <div class="principal-image">
+                <img src="images/principal.jpg" alt="Principal">
+            </div>
+            <div class="principal-message">
+                <h3>A Word From Our Principal</h3>
+                <p class="highlight">"At Khidwai English School, we believe that education is not just about academic excellence, but about shaping character, building confidence, and nurturing the unique potential within each child."</p>
+                <p>Learning happens when we learn directly about a new culture…not from a textbook but from our roommate, or a new friend. Learning grows out of our successes and our failures. It happens when we study, work, talk, play, pray, share, reflect, argue…and when we make up.</p>
+                <p>Granted, it doesn't happen all the time, but a community that is imbued with the spirit of learning finds that learning is an ongoing continuous process that extends far beyond the classroom walls.</p>
+                <p class="principal-signature">— The Principal</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About us</h3>
+                <p>We provide the highest quality education so that all of our students are empowered to lead productive and fulfilling lives as lifelong learners and responsible citizens.</p>
+                <!-- Social Media Icons -->
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Khidwai English School<br>R.M.L Nagar, 2nd Stage<br>Shimoga 577205</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+919480764329</p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>khidwaibrilient314@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="alumini.html">Application</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="facilites.html">Facilities</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+           
+            <div class="footer-column">
+                <h3>WE'RE PROUD OF</h3>
+                <ul class="footer-proud-list">
+                    <li>100% Results</li>
+                    <li>Sports & Games</li>
+                    <li>Transport Facilities</li>
+                    <li>Well Equipped Laboratories</li>
+                    <li>Qualified Teachers</li>
+                    <li>Modern Infrastructure</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;<script>document.write(new Date().getFullYear());</script>   All Right reserved by <a href="https://schoolcrp.in/" target="_blank"style="color: white;">Khidwai English School</a> </p>
+            <p>
+                Designed and Developed by 
+                <a href="https://mitrasoftwares.in" target="_blank" style="color: white;">Mitra Softwares</a>
+              </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle with null checks
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.replace('fa-bars', 'fa-times');
+                } else {
+                    icon.classList.replace('fa-times', 'fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    const menuIcon = mobileMenuBtn.querySelector('i');
+                    if (menuIcon) {
+                        menuIcon.classList.replace('fa-times', 'fa-bars');
+                    }
+                });
+            });
+        }
+    
+        // Banner Slider with existence check
+        const slides = document.querySelectorAll('.banner-slide');
+        if (slides.length > 0) {
+            let currentSlide = 0;
+            
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Auto slide every 5 seconds
+            const bannerInterval = setInterval(() => showSlide(currentSlide + 1), 5000);
+        }
+    
+        // Testimonial Slider with existence check
+        const testimonials = document.querySelectorAll('.testimonial-slide');
+        if (testimonials.length > 0) {
+            let currentTestimonial = 0;
+            
+            function showTestimonial(n) {
+                testimonials.forEach(t => t.classList.remove('active'));
+                currentTestimonial = (n + testimonials.length) % testimonials.length;
+                testimonials[currentTestimonial].classList.add('active');
+            }
+            
+            // Auto slide every 7 seconds
+            const testimonialInterval = setInterval(() => showTestimonial(currentTestimonial + 1), 7000);
+        }
+    
+        // Safe element modification
+        const someElement = document.getElementById('someElement');
+        if (someElement) {
+            someElement.textContent = "Some text";
+        }
+    
+        // Scroll Animations
+        function checkIfInView() {
+            document.querySelectorAll('.slide-up, .fade-in').forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = 1;
+                    if (element.classList.contains('slide-up')) {
+                        element.style.transform = 'translateY(0)';
+                    }
+                }
+            });
+        }
+    
+        // Active Page Highlighting
+        function setActivePage() {
+            const path = window.location.pathname;
+            let currentPage;
+    
+            if (path === '/' || path.includes('index.html')) {
+                currentPage = 'index.html';
+            } else {
+                currentPage = path.split('/').pop();
+            }
+    
+            document.querySelectorAll('nav ul li a, .mobile-menu ul li a').forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === currentPage);
+            });
+        }
+    
+        // Initialize everything when DOM loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setActivePage();
+            checkIfInView();
+            window.addEventListener('scroll', checkIfInView);
+            
+            // Clean up intervals when leaving page
+            window.addEventListener('beforeunload', function() {
+                if (bannerInterval) clearInterval(bannerInterval);
+                if (testimonialInterval) clearInterval(testimonialInterval);
+            });
+        });
+    </script>
+</body>
+</html>
